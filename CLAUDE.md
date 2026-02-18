@@ -1,26 +1,74 @@
-# CLAUDE.md — Ticket Marketplace MVP
+# CLAUDE.md — Stub Vault MVP
 
 ## Project Overview
 
-This is a Ticket Marketplace MVP — a platform for buying and selling event tickets. The repository is in its initial scaffolding phase.
+Stub Vault is a licensed sports ticket memorabilia marketplace MVP. Fans upload a digital ticket screenshot, the platform simulates verification, and they can preview and order a premium physical souvenir ticket. This is a non-functional demo built to showcase the user flow for investors and potential sports entity partners.
 
 ## Repository Status
 
-**Current state**: Fresh repository — no application code yet. Awaiting business plan and technical requirements to begin MVP development.
+**Current state**: MVP complete — 6-screen React SPA with mock data, Tailwind CSS styling, and full user flow from landing to order confirmation.
 
 ## Directory Structure
 
 ```
 / (root)
-├── CLAUDE.md          # This file — AI assistant guide
-├── README.md          # Project overview
+├── CLAUDE.md                          # This file — AI assistant guide
+├── README.md                          # Project overview & quick start
+├── package.json                       # Dependencies and scripts
+├── vite.config.js                     # Vite + Tailwind plugin config
+├── index.html                         # Entry HTML with Inter font
+├── eslint.config.js                   # ESLint config
 ├── tasks/
-│   ├── todo.md        # Task tracking with checkable items
-│   └── lessons.md     # Self-improvement patterns and corrections
-└── .git/              # Git version control
+│   ├── todo.md                        # Task tracking
+│   └── lessons.md                     # Self-improvement log
+├── src/
+│   ├── main.jsx                       # React entry point
+│   ├── index.css                      # Tailwind imports + brand theme
+│   ├── App.jsx                        # Screen router / state orchestrator
+│   ├── data/
+│   │   └── mockData.js                # 10 teams, games, leagues, defaults
+│   └── components/
+│       ├── LandingPage.jsx            # Screen 1: Hero, how-it-works, partners
+│       ├── BrowseTeams.jsx            # Screen 2: Team directory with league filter
+│       ├── SelectGame.jsx             # Screen 3: Game list for selected team
+│       ├── UploadTicket.jsx           # Screen 4: Drag-drop upload + verification
+│       ├── TicketPreview.jsx          # Screen 5: Physical ticket preview + pricing
+│       └── OrderCheckout.jsx          # Screen 6: Shipping form + confirmation
+└── dist/                              # Production build output
 ```
 
-> This section will be updated as the project structure is built out.
+## Tech Stack
+
+- **React 19** (via Vite 7)
+- **Tailwind CSS v4** (with `@tailwindcss/vite` plugin)
+- **No backend** — all mock data, no API calls, no payment processing
+- **No router library** — screen navigation via React useState
+
+## Commands Reference
+
+```bash
+npm install          # Install dependencies
+npm run dev          # Start dev server (http://localhost:5173)
+npm run build        # Production build to dist/
+npm run lint         # ESLint check
+npm run preview      # Preview production build
+```
+
+## Brand Guidelines
+
+| Element        | Value                          |
+|---------------|--------------------------------|
+| Brand Name     | Stub Vault                     |
+| Tagline        | Your Seat. Your Story. Your Stub. |
+| Primary Color  | `#1a3a5c` (deep navy)          |
+| Secondary Color| `#D4A017` (gold/amber)         |
+| Accent Color   | `#E8F4FD` (light blue)         |
+| Font           | Inter                          |
+
+Custom Tailwind theme colors defined in `src/index.css`:
+- `navy`, `navy-dark`, `navy-light`
+- `gold`, `gold-light`, `gold-dark`
+- `accent`, `accent-dark`
 
 ## Git Workflow
 
@@ -29,23 +77,6 @@ This is a Ticket Marketplace MVP — a platform for buying and selling event tic
 - Push with: `git push -u origin claude/build-mvp-platform-N51Wz`
 - Write clear, descriptive commit messages
 - Never force push or push to `main` without explicit permission
-
-## Development Conventions (To Be Established)
-
-The following will be defined once the tech stack is chosen and scaffolding begins:
-
-- Language and framework
-- Package manager and dependency management
-- Code style and linting rules
-- Testing strategy and tools
-- Database and ORM
-- API design patterns
-- Environment variable management
-- Build and deployment pipeline
-
-## Commands Reference
-
-> Commands will be added here as the project is scaffolded (e.g., `npm run dev`, `npm test`, `npm run build`).
 
 ---
 
@@ -121,7 +152,7 @@ Keep the main context window clean:
 2. **Minimal changes** — Only change what is necessary; avoid over-engineering.
 3. **No secrets in code** — Never commit `.env` files, API keys, or credentials.
 4. **Track work** — Use `tasks/todo.md` and TodoWrite to plan and track multi-step tasks.
-5. **Test your changes** — Run the test suite after making changes.
+5. **Test your changes** — Run `npm run lint` and `npm run build` after making changes.
 6. **Follow existing patterns** — Match the style and conventions already present in the codebase.
 7. **Update this file** — Keep CLAUDE.md current as the project evolves.
 8. **Log lessons** — After any correction, update `tasks/lessons.md` immediately.

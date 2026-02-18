@@ -1,0 +1,216 @@
+export const partners = [
+  {
+    id: 1,
+    name: 'Lakewood Lions',
+    league: 'NFL',
+    colors: { primary: '#1a3a5c', secondary: '#D4A017' },
+    games: [
+      {
+        id: 101,
+        date: 'December 15, 2024',
+        opponent: 'Rival Bears',
+        type: 'Playoff Clincher',
+        venue: 'Lions Stadium',
+        available: true,
+      },
+      {
+        id: 102,
+        date: 'October 27, 2024',
+        opponent: 'Mountain Tigers',
+        type: 'Regular Season',
+        venue: 'Lions Stadium',
+        available: true,
+      },
+      {
+        id: 103,
+        date: 'September 8, 2024',
+        opponent: 'Blue Jays',
+        type: 'Season Opener',
+        venue: 'Lions Stadium',
+        available: false,
+      },
+    ],
+  },
+  {
+    id: 2,
+    name: 'Metro Hawks',
+    league: 'MLB',
+    colors: { primary: '#8B0000', secondary: '#FFFFFF' },
+    games: [
+      {
+        id: 201,
+        date: 'October 5, 2024',
+        opponent: 'Valley Aces',
+        type: 'Wild Card',
+        venue: 'Hawk Field',
+        available: true,
+      },
+      {
+        id: 202,
+        date: 'July 4, 2024',
+        opponent: 'Star Sox',
+        type: 'Regular Season',
+        venue: 'Hawk Field',
+        available: true,
+      },
+    ],
+  },
+  {
+    id: 3,
+    name: 'Summit Kings',
+    league: 'NBA',
+    colors: { primary: '#4B0082', secondary: '#FFD700' },
+    games: [
+      {
+        id: 301,
+        date: 'April 20, 2025',
+        opponent: 'River Wolves',
+        type: 'Playoff Round 1',
+        venue: 'Kings Arena',
+        available: true,
+      },
+      {
+        id: 302,
+        date: 'March 15, 2025',
+        opponent: 'Coast Sharks',
+        type: 'Regular Season',
+        venue: 'Kings Arena',
+        available: true,
+      },
+    ],
+  },
+  {
+    id: 4,
+    name: 'Northern Storm',
+    league: 'NHL',
+    colors: { primary: '#003366', secondary: '#87CEEB' },
+    games: [
+      {
+        id: 401,
+        date: 'January 12, 2025',
+        opponent: 'Blaze FC',
+        type: 'Regular Season',
+        venue: 'Storm Ice Center',
+        available: true,
+      },
+    ],
+  },
+  {
+    id: 5,
+    name: 'Ridgemont University',
+    league: 'NCAA',
+    colors: { primary: '#006400', secondary: '#FFD700' },
+    games: [
+      {
+        id: 501,
+        date: 'November 23, 2024',
+        opponent: 'State Bulldogs',
+        type: 'Rivalry Game',
+        venue: 'Ridgemont Stadium',
+        available: true,
+      },
+      {
+        id: 502,
+        date: 'October 12, 2024',
+        opponent: 'Central Cougars',
+        type: 'Homecoming',
+        venue: 'Ridgemont Stadium',
+        available: false,
+      },
+    ],
+  },
+  {
+    id: 6,
+    name: 'Bay City Mariners',
+    league: 'MLB',
+    colors: { primary: '#0C2340', secondary: '#C4CED4' },
+    games: [
+      {
+        id: 601,
+        date: 'August 18, 2024',
+        opponent: 'Prairie Wolves',
+        type: 'Regular Season',
+        venue: 'Mariners Park',
+        available: true,
+      },
+    ],
+  },
+  {
+    id: 7,
+    name: 'Pacific Tide',
+    league: 'NFL',
+    colors: { primary: '#002244', secondary: '#69BE28' },
+    games: [
+      {
+        id: 701,
+        date: 'December 1, 2024',
+        opponent: 'Desert Falcons',
+        type: 'Regular Season',
+        venue: 'Tide Stadium',
+        available: true,
+      },
+    ],
+  },
+  {
+    id: 8,
+    name: 'Eastlake University',
+    league: 'NCAA',
+    colors: { primary: '#CC0000', secondary: '#000000' },
+    games: [
+      {
+        id: 801,
+        date: 'November 2, 2024',
+        opponent: 'Coastal Eagles',
+        type: 'Conference Championship',
+        venue: 'Eastlake Arena',
+        available: true,
+      },
+    ],
+  },
+  {
+    id: 9,
+    name: 'Iron City Forge',
+    league: 'NHL',
+    colors: { primary: '#111111', secondary: '#FFB81C' },
+    games: [
+      {
+        id: 901,
+        date: 'February 8, 2025',
+        opponent: 'Timber Wolves',
+        type: 'Regular Season',
+        venue: 'Forge Arena',
+        available: true,
+      },
+    ],
+  },
+  {
+    id: 10,
+    name: 'Heartland Bison',
+    league: 'NBA',
+    colors: { primary: '#1D428A', secondary: '#CE1141' },
+    games: [
+      {
+        id: 1001,
+        date: 'March 8, 2025',
+        opponent: 'Canyon Suns',
+        type: 'Regular Season',
+        venue: 'Bison Center',
+        available: true,
+      },
+    ],
+  },
+];
+
+export const leagues = ['All', 'NFL', 'MLB', 'NBA', 'NHL', 'NCAA'];
+
+export const defaultVerifiedTicket = {
+  team: 'Lakewood Lions',
+  opponent: 'Rival Bears',
+  date: 'December 15, 2024',
+  venue: 'Lions Stadium',
+  section: '124',
+  row: 'F',
+  seat: '11',
+  type: 'Playoff Clincher',
+  colors: { primary: '#1a3a5c', secondary: '#D4A017' },
+};
