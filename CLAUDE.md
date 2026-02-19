@@ -16,7 +16,7 @@ Stub Vault is a licensed sports ticket memorabilia marketplace MVP. Fans upload 
 ├── README.md                          # Project overview & quick start
 ├── package.json                       # Dependencies and scripts
 ├── vite.config.js                     # Vite + Tailwind plugin config
-├── index.html                         # Entry HTML with Inter font
+├── index.html                         # Entry HTML with Google Fonts
 ├── eslint.config.js                   # ESLint config
 ├── tasks/
 │   ├── todo.md                        # Task tracking
@@ -56,19 +56,34 @@ npm run preview      # Preview production build
 
 ## Brand Guidelines
 
-| Element        | Value                          |
-|---------------|--------------------------------|
-| Brand Name     | Stub Vault                     |
-| Tagline        | Your Seat. Your Story. Your Stub. |
-| Primary Color  | `#1a3a5c` (deep navy)          |
-| Secondary Color| `#D4A017` (gold/amber)         |
-| Accent Color   | `#E8F4FD` (light blue)         |
-| Font           | Inter                          |
+| Element         | Value                                              |
+|----------------|----------------------------------------------------|
+| Brand Name      | Stub Vault                                         |
+| Wordmark        | "Stub" white + "Vault" #A8281F italic (Playfair)   |
+| Tagline         | Your Seat. Your Story. Your Stub.                  |
+| Display Font    | Playfair Display (headings, team names, wordmark)  |
+| Data Font       | IBM Plex Mono (numbers, buttons, labels, inputs)   |
+| Body Font       | Libre Baskerville (paragraphs, descriptions)       |
+| Page Background | `#F0E6CC` (cream) — never use #FFFFFF              |
+| Card Surfaces   | `#F7F0DC` (cream-light)                            |
+| Dark Panels     | `#111A0E` (void) / `#1C2E16` (deep)               |
+| Primary CTA     | `#8C1F1A` (brick red), white text, 1px radius      |
+| Data Accents    | `#B87310` (amber) on dark panels only              |
+| Gold            | `#C9A227` — ticket stub seat numbers ONLY          |
 
 Custom Tailwind theme colors defined in `src/index.css`:
-- `navy`, `navy-dark`, `navy-light`
-- `gold`, `gold-light`, `gold-dark`
-- `accent`, `accent-dark`
+- **Greens**: `void`, `deep`, `field`, `muted`
+- **Reds**: `red`, `red-hover`, `red-pale`
+- **Creams**: `cream`, `cream-light`, `parchment`, `cream-dark`
+- **Ambers**: `amber`, `amber-light`
+- **Inks**: `ink`, `ink-mid`, `ink-dim`
+
+### Typography Rules
+1. **Headings** (Playfair Display): H1–H3, brand wordmark, team names (always italic)
+2. **Data & Controls** (IBM Plex Mono): Numbers, prices, dates, buttons, labels, inputs, badges, nav
+3. **Body** (Libre Baskerville): Paragraphs, descriptions, captions only
+4. Never use Inter, Roboto, Arial, or any sans-serif font
+5. Never use pure white (#FFFFFF) as a background
 
 ## Git Workflow
 

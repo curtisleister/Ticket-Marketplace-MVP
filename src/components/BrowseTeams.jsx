@@ -9,13 +9,13 @@ export default function BrowseTeams({ onSelectTeam, onBack }) {
     : partners.filter((p) => p.league === activeLeague);
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-cream">
       {/* Header */}
-      <div className="bg-navy">
+      <div className="bg-void">
         <div className="max-w-6xl mx-auto px-6 py-6 flex items-center justify-between">
           <button
             onClick={onBack}
-            className="text-white/70 hover:text-white flex items-center gap-2 transition-colors cursor-pointer bg-transparent border-none text-sm font-medium"
+            className="text-cream-dark/70 hover:text-cream flex items-center gap-2 transition-colors cursor-pointer bg-transparent border-none text-sm font-mono font-medium"
           >
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
@@ -23,19 +23,23 @@ export default function BrowseTeams({ onSelectTeam, onBack }) {
             Back to Home
           </button>
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-gold rounded flex items-center justify-center">
-              <svg className="w-5 h-5 text-navy-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <div className="w-8 h-8 bg-red rounded-sm flex items-center justify-center">
+              <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M15 5v2m0 4v2m0 4v2M5 5a2 2 0 00-2 2v3a1 1 0 001 1h1a1 1 0 001-1V7a2 2 0 00-2-2zm14 0a2 2 0 012 2v3a1 1 0 01-1 1h-1a1 1 0 01-1-1V7a2 2 0 012-2zM5 12a1 1 0 00-1 1v3a2 2 0 002 2h14a2 2 0 002-2v-3a1 1 0 00-1-1H5z" />
               </svg>
             </div>
-            <span className="text-white font-bold text-lg">STUB VAULT</span>
+            <span className="font-display font-bold text-lg tracking-tight">
+              <span className="text-white">Stub</span>
+              <span className="text-red-hover italic">Vault</span>
+            </span>
           </div>
         </div>
       </div>
 
       <div className="max-w-6xl mx-auto px-6 py-10">
-        <h1 className="text-3xl md:text-4xl font-bold text-navy mb-2">Browse Partners</h1>
-        <p className="text-gray-500 mb-8">Select a team or university to view available games</p>
+        <span className="font-mono text-[10px] font-medium tracking-[0.26em] uppercase text-red">Teams</span>
+        <h1 className="text-3xl md:text-4xl font-display text-ink mb-2" style={{ fontSize: '40px', lineHeight: 1.1 }}>Browse Partners</h1>
+        <p className="text-ink-dim mb-8 font-body">Select a team or university to view available games</p>
 
         {/* Filter Bar */}
         <div className="flex flex-wrap gap-2 mb-10">
@@ -43,11 +47,12 @@ export default function BrowseTeams({ onSelectTeam, onBack }) {
             <button
               key={league}
               onClick={() => setActiveLeague(league)}
-              className={`px-5 py-2 rounded-full text-sm font-semibold transition-all cursor-pointer border-none ${
+              className={`px-5 py-2 rounded-sm text-sm font-mono font-semibold transition-all cursor-pointer border-none ${
                 activeLeague === league
-                  ? 'bg-navy text-white shadow-md'
-                  : 'bg-white text-gray-600 hover:bg-gray-100 shadow-sm'
+                  ? 'bg-red text-white'
+                  : 'bg-cream-light text-ink-dim hover:bg-parchment'
               }`}
+              style={{ boxShadow: activeLeague === league ? 'var(--shadow-sm)' : 'none' }}
             >
               {league}
             </button>
@@ -59,7 +64,10 @@ export default function BrowseTeams({ onSelectTeam, onBack }) {
           {filtered.map((team) => (
             <div
               key={team.id}
-              className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-200 hover:-translate-y-1 border border-gray-100 group"
+              className="bg-cream-light rounded-sm overflow-hidden border border-cream-dark group transition-all duration-200 hover:-translate-y-1"
+              style={{ boxShadow: 'var(--shadow-sm)' }}
+              onMouseEnter={(e) => e.currentTarget.style.boxShadow = 'var(--shadow-md)'}
+              onMouseLeave={(e) => e.currentTarget.style.boxShadow = 'var(--shadow-sm)'}
             >
               {/* Team color banner */}
               <div
@@ -67,7 +75,7 @@ export default function BrowseTeams({ onSelectTeam, onBack }) {
                 style={{ background: `linear-gradient(135deg, ${team.colors.primary}, ${team.colors.primary}dd)` }}
               >
                 <div
-                  className="w-14 h-14 rounded-full bg-white/20 flex items-center justify-center text-white font-bold text-xs backdrop-blur-sm border border-white/30"
+                  className="w-14 h-14 rounded-full bg-white/20 flex items-center justify-center text-white font-mono font-semibold text-xs backdrop-blur-sm border border-white/30"
                 >
                   {team.name.split(' ').map(w => w[0]).join('')}
                 </div>
@@ -75,18 +83,18 @@ export default function BrowseTeams({ onSelectTeam, onBack }) {
 
               <div className="p-5">
                 <div className="flex items-center gap-2 mb-1">
-                  <span className="text-[11px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full"
+                  <span className="text-[11px] font-mono font-semibold uppercase tracking-wider px-2 py-0.5 rounded-sm"
                     style={{ backgroundColor: team.colors.primary + '15', color: team.colors.primary }}>
                     {team.league}
                   </span>
                 </div>
-                <h3 className="text-lg font-bold text-navy mt-2">{team.name}</h3>
-                <p className="text-gray-400 text-sm mb-4">
+                <h3 className="text-lg font-display font-bold italic text-ink mt-2">{team.name}</h3>
+                <p className="text-ink-dim text-sm mb-4 font-mono">
                   {team.games.length} game{team.games.length !== 1 ? 's' : ''} available
                 </p>
                 <button
                   onClick={() => onSelectTeam(team)}
-                  className="w-full bg-navy hover:bg-navy-light text-white font-semibold py-2.5 rounded-lg transition-colors cursor-pointer text-sm border-none"
+                  className="w-full bg-red hover:bg-red-hover text-white font-mono font-semibold py-2.5 rounded-sm transition-colors cursor-pointer text-sm border-none"
                 >
                   View Available Games
                 </button>

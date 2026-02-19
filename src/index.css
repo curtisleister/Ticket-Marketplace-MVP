@@ -1,26 +1,95 @@
 @import "tailwindcss";
 
 @theme {
-  --color-navy: #1a3a5c;
-  --color-navy-dark: #0f2640;
-  --color-navy-light: #2a5580;
-  --color-gold: #D4A017;
-  --color-gold-light: #e6b832;
-  --color-gold-dark: #b8890f;
-  --color-accent: #E8F4FD;
-  --color-accent-dark: #c5e4f5;
-  --font-sans: 'Inter', system-ui, sans-serif;
+  /* === Greens (structure & backgrounds) === */
+  --color-void: #111A0E;
+  --color-deep: #1C2E16;
+  --color-field: #2A4520;
+  --color-muted: #3D5C30;
+
+  /* === Reds (primary interactive) === */
+  --color-red: #8C1F1A;
+  --color-red-hover: #A8281F;
+  --color-red-pale: #F5E8E6;
+
+  /* === Creams (dominant light surfaces) === */
+  --color-cream: #F0E6CC;
+  --color-cream-light: #F7F0DC;
+  --color-parchment: #E8D9B4;
+  --color-cream-dark: #DFD0AD;
+
+  /* === Ambers (data labels on dark panels) === */
+  --color-amber: #B87310;
+  --color-amber-light: #D4900A;
+
+  /* === Gold (ticket stub seat number ONLY) === */
+  --color-gold: #C9A227;
+
+  /* === Inks === */
+  --color-ink: #16110A;
+  --color-ink-mid: #352B18;
+  --color-ink-dim: #6B5C3E;
+
+  /* === Fonts === */
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-mono: 'IBM Plex Mono', 'Courier New', monospace;
+  --font-body: 'Libre Baskerville', Georgia, serif;
 }
 
+:root {
+  /* === SHADOWS (always warm-tinted, never gray) === */
+  --shadow-sm:     0 2px 12px rgba(18,10,0,0.14);
+  --shadow-md:     0 4px 24px rgba(18,10,0,0.20);
+  --shadow-lg:     0 8px 48px rgba(18,10,0,0.36);
+  --shadow-ticket: 0 12px 56px rgba(18,10,0,0.42);
+}
+
+/* === BASE === */
 body {
   margin: 0;
-  font-family: var(--font-sans);
+  font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #ffffff;
-  color: #1a1a1a;
+  background-color: var(--color-cream);
+  color: var(--color-ink);
 }
 
 * {
   box-sizing: border-box;
+}
+
+/* === TYPOGRAPHY === */
+h1, h2, h3, .team-name, .brand-name {
+  font-family: var(--font-display);
+}
+
+h1 {
+  font-size: 64px;
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+h3 {
+  font-size: 20px;
+  font-weight: 700;
+  font-style: italic;
+  line-height: 1.25;
+}
+
+/* Data & controls — IBM Plex Mono */
+button, nav a, input, select {
+  font-family: var(--font-mono);
+}
+
+/* Paragraph text — Libre Baskerville */
+p {
+  font-family: var(--font-body);
+  line-height: 1.7;
 }
