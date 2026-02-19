@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { partners, leagues } from '../data/mockData';
+import Logo from './Logo';
 
 export default function BrowseTeams({ onSelectTeam, onBack }) {
   const [activeLeague, setActiveLeague] = useState('All');
@@ -23,11 +24,7 @@ export default function BrowseTeams({ onSelectTeam, onBack }) {
             Back to Home
           </button>
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-red rounded-sm flex items-center justify-center">
-              <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M15 5v2m0 4v2m0 4v2M5 5a2 2 0 00-2 2v3a1 1 0 001 1h1a1 1 0 001-1V7a2 2 0 00-2-2zm14 0a2 2 0 012 2v3a1 1 0 01-1 1h-1a1 1 0 01-1-1V7a2 2 0 012-2zM5 12a1 1 0 00-1 1v3a2 2 0 002 2h14a2 2 0 002-2v-3a1 1 0 00-1-1H5z" />
-              </svg>
-            </div>
+            <Logo size={32} />
             <span className="font-display font-bold text-lg tracking-tight">
               <span className="text-white">Stub</span>
               <span className="text-red-hover italic">Vault</span>
