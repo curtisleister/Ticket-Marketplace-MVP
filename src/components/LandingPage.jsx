@@ -16,10 +16,10 @@ export default function LandingPage({ onNavigate }) {
 
         <div className="relative z-10 max-w-6xl mx-auto px-6 py-20 text-center">
           {/* Brand Wordmark */}
-          <div className="mb-8">
-            <div className="inline-flex items-center gap-3 mb-6">
-              <Logo size={48} />
-              <span className="font-display text-2xl font-bold tracking-tight">
+          <div className="mb-10">
+            <div className="flex flex-col items-center gap-4 mb-6">
+              <Logo size={120} />
+              <span className="font-display text-4xl font-bold tracking-tight">
                 <span className="text-white">Stub</span>
                 <span className="text-red-hover italic">Vault</span>
               </span>

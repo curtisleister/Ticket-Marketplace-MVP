@@ -1,10 +1,11 @@
-import { useState } from 'react';
+import { useState, lazy, Suspense } from 'react';
 import LandingPage from './components/LandingPage';
-import BrowseTeams from './components/BrowseTeams';
-import SelectGame from './components/SelectGame';
-import UploadTicket from './components/UploadTicket';
-import TicketPreview from './components/TicketPreview';
-import OrderCheckout from './components/OrderCheckout';
+
+const BrowseTeams = lazy(() => import('./components/BrowseTeams'));
+const SelectGame = lazy(() => import('./components/SelectGame'));
+const UploadTicket = lazy(() => import('./components/UploadTicket'));
+const TicketPreview = lazy(() => import('./components/TicketPreview'));
+const OrderCheckout = lazy(() => import('./components/OrderCheckout'));
 
 function App() {
   const [screen, setScreen] = useState('landing');
@@ -50,40 +51,42 @@ function App() {
       {screen === 'landing' && (
         <LandingPage onNavigate={(s) => navigate(s)} />
       )}
-      {screen === 'browse' && (
-        <BrowseTeams
-          onSelectTeam={handleSelectTeam}
-          onBack={() => navigate('landing')}
-        />
-      )}
-      {screen === 'selectGame' && selectedTeam && (
-        <SelectGame
-          team={selectedTeam}
-          onSelectGame={handleSelectGame}
-          onBack={() => navigate('browse')}
-        />
-      )}
-      {screen === 'upload' && selectedTeam && selectedGame && (
-        <UploadTicket
-          team={selectedTeam}
-          game={selectedGame}
-          onVerified={handleVerified}
-          onBack={() => navigate('selectGame')}
-        />
-      )}
-      {screen === 'preview' && ticketData && (
-        <TicketPreview
-          ticketData={ticketData}
-          onAddToCart={handleAddToCart}
-          onBack={() => navigate('upload')}
-        />
-      )}
-      {screen === 'checkout' && orderData && (
-        <OrderCheckout
-          orderData={orderData}
-          onBack={() => navigate('preview')}
-        />
-      )}
+      <Suspense fallback={<div className="min-h-screen bg-cream" />}>
+        {screen === 'browse' && (
+          <BrowseTeams
+            onSelectTeam={handleSelectTeam}
+            onBack={() => navigate('landing')}
+          />
+        )}
+        {screen === 'selectGame' && selectedTeam && (
+          <SelectGame
+            team={selectedTeam}
+            onSelectGame={handleSelectGame}
+            onBack={() => navigate('browse')}
+          />
+        )}
+        {screen === 'upload' && selectedTeam && selectedGame && (
+          <UploadTicket
+            team={selectedTeam}
+            game={selectedGame}
+            onVerified={handleVerified}
+            onBack={() => navigate('selectGame')}
+          />
+        )}
+        {screen === 'preview' && ticketData && (
+          <TicketPreview
+            ticketData={ticketData}
+            onAddToCart={handleAddToCart}
+            onBack={() => navigate('upload')}
+          />
+        )}
+        {screen === 'checkout' && orderData && (
+          <OrderCheckout
+            orderData={orderData}
+            onBack={() => navigate('preview')}
+          />
+        )}
+      </Suspense>
     </div>
   );
 }
